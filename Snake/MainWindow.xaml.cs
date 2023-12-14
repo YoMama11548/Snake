@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Media;
+using NAudio.Wave;
 
 namespace Snake
 {
@@ -21,6 +22,8 @@ namespace Snake
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
 
         
 
@@ -167,6 +170,10 @@ namespace Snake
 
         private async Task DrawDeadSnake()
         {
+            var audioFile = new AudioFileReader("C:\\Users\\22002545CTC\\source\\repos\\Snake\\Snake\\Sounds\\super-mario-death-sound-sound-effect.mp3");
+            var waveOut = new WaveOut();
+            waveOut.Init(audioFile);
+            waveOut.Play();
             List<Position> positions = new List<Position>(gameState.SnakePositions());
 
             for (int i = 0; i < positions.Count;i++)
