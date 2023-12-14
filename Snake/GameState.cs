@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -164,6 +165,12 @@ namespace Snake
             }
             else if (hit == GridValue.Food)
             {
+
+                var audFile = new AudioFileReader("C:\\Users\\22002545CTC\\source\\repos\\Snake\\Snake\\Sounds\\bracken-neck-snap-made-with-Voicemod-technology.mp3");
+                var maveOut = new WaveOut();
+                maveOut.Init(audFile);
+                maveOut.Play();
+
                 AddHead(newHeadPos);
                 Score++;
                 AddFood();
