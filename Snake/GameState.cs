@@ -172,6 +172,8 @@ namespace Snake
                 maveOut.Play();
 
                 AddHead(newHeadPos);
+                AddHead(newHeadPos);
+                AddHead(newHeadPos);
                 Score++;
                 AddFood();
             }

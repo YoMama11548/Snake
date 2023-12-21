@@ -42,10 +42,11 @@ namespace Snake
             { Direction.Left, 270 }
         };
 
-        private readonly int rows = 15, cols = 15;
+        private readonly int rows = 17, cols = 17;
         private readonly Image[,] gridImages;
         private GameState gameState;
         private bool gameRunning;
+        private int boostSpeed = 0;
 
         public MainWindow()
         {
@@ -91,16 +92,38 @@ namespace Snake
                 case Key.Left:
                     gameState.ChangeDirection(Direction.Left); 
                     break;
+                case Key.A:
+                    gameState.ChangeDirection(Direction.Left);
+                    break;
                 case Key.Right:
+                    gameState.ChangeDirection(Direction.Right);
+                    break;
+                case Key.D:
                     gameState.ChangeDirection(Direction.Right);
                     break;
                 case Key.Up:
                     gameState.ChangeDirection(Direction.Up);
                     break;
+                case Key.W:
+                    gameState.ChangeDirection(Direction.Up);
+                    break;
                 case Key.Down:
                     gameState.ChangeDirection(Direction.Down);
                     break;
-                    
+                case Key.S:
+                    gameState.ChangeDirection(Direction.Down);
+                    break;
+                case Key.Space:
+                    if (boostSpeed == 0)
+                    {
+                        boostSpeed = GameSettings.BoostSpeed;
+                    }
+                    else
+                    {
+                        boostSpeed = 0;
+                    }
+                    break;
+
             }
         }
 
